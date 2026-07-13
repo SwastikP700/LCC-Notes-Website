@@ -60,47 +60,65 @@ function queueRender(page) {
         RENDER PDF PAGE
 ==========================================*/
 async function renderPage(pageNumber) {
-  if (!pdfDocument) return;
-  isRendering = true;
-  showLoader();
-  try {
-    const page = await pdfDocument.getPage(pageNumber);
-    const viewport = page.getViewport({
-      scale: currentScale,
-    });
-    const containerWidth = pdfContainer.clientWidth - 40;
-    let renderScale = currentScale;
-    if (viewport.width > containerWidth) {
-      renderScale *= containerWidth / viewport.width;
+    if (!pdfDocument) return;
+    isRendering = true;
+    showLoader();
+    try {
+        const page = await pdfDocument.getPage(pageNumber);
+        // Calculate the best scale to fit the container
+        const baseViewport = page.getViewport({ scale: 1 });
+        const availableWidth = pdfContainer.clientWidth - 20;
+        const fitScale = availableWidth / baseViewport.width;
+        const finalScale = fitScale * currentScale;
+        const viewport = page.getViewport({
+            scale: finalScale
+        });
+        // High-DPI (Retina) rendering
+        const pixelRatio = window.devicePixelRatio || 1;
+        pdfCanvas.width = Math.floor(viewport.width * pixelRatio);
+        pdfCanvas.height = Math.floor(viewport.height * pixelRatio);
+        pdfCanvas.style.width = viewport.width + "px";
+        pdfCanvas.style.height = viewport.height + "px";
+        canvasContext.setTransform(
+            pixelRatio,
+            0,
+            0,
+            pixelRatio,
+            0,
+            0
+        );
+        canvasContext.clearRect(
+            0,
+            0,
+            pdfCanvas.width,
+            pdfCanvas.height
+        );
+        const renderContext = {
+            canvasContext: canvasContext,
+            viewport: viewport
+        };
+        await page.render(renderContext).promise;
+        updatePageInfo();
+        updateZoomLevel();
+        if (typeof updateNavigationButtons === "function") {
+            updateNavigationButtons();
+        }
     }
-    const finalViewport = page.getViewport({
-      scale: renderScale,
-    });
-    pdfCanvas.width = finalViewport.width;
-    pdfCanvas.height = finalViewport.height;
-    await page.render({
-      canvasContext,
-      viewport: finalViewport,
-    }).promise;
-    updatePageInfo();
-    updateZoomLevel();
-  } catch (error) {
-    console.error(
-      "Render Error:",
-      error,
-    );
-    if (typeof noteError === "function") {
-      noteError();
+    catch (error) {
+        console.error("Render Error:", error);
+        if (typeof noteError === "function") {
+            noteError();
+        }
     }
-  } finally {
-    isRendering = false;
-    hideLoader();
-    if (pendingPage !== null) {
-      const nextPage = pendingPage;
-      pendingPage = null;
-      renderPage(nextPage);
+    finally {
+        isRendering = false;
+        hideLoader();
+        if (pendingPage !== null) {
+            const nextPage = pendingPage;
+            pendingPage = null;
+            renderPage(nextPage);
+        }
     }
-  }
 }
 /*==================================================
         LCC EDUCATION NOTES
