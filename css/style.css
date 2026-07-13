@@ -1,0 +1,2329 @@
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 1A)
+        Developed by ChatGPT
+==================================================*/
+/*==============================
+        GOOGLE FONT
+===============================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+/*==============================
+            RESET
+===============================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f7f3;
+  color: #2b2b2b;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+/*==============================
+        ROOT VARIABLES
+===============================*/
+:root {
+  --primary: #c62828;
+  --primary-dark: #b71c1c;
+  --green: #1b5e20;
+  --green-light: #2e7d32;
+  --green-soft: #43a047;
+  --white: #ffffff;
+  --text: #2f2f2f;
+  --text-light: #6d6d6d;
+  --border: #e3e8e2;
+  --background: #f5f8f5;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.12);
+  --radius: 18px;
+  --transition: 0.35s ease;
+}
+/*==============================
+        SCROLLBAR
+===============================*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #edf2ed;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--primary), var(--green));
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+}
+/*==============================
+        BODY BACKGROUND
+===============================*/
+body {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(198, 40, 40, 0.05),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(27, 94, 32, 0.05),
+      transparent 35%
+    ),
+    var(--background);
+}
+/*==============================
+        NAVBAR
+===============================*/
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 82px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+/*==============================
+        LEFT NAV
+===============================*/
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+/*==============================
+        HAMBURGER
+===============================*/
+#menuBtn {
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: linear-gradient(135deg, #ffffff, var(--primary));
+  box-shadow: 0 10px 25px rgba(198, 40, 40, 0.2);
+  transition: var(--transition);
+}
+#menuBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(198, 40, 40, 0.3);
+}
+#menuBtn span {
+  width: 24px;
+  height: 3px;
+  border-radius: 20px;
+  background: #ffffff;
+}
+/*==============================
+        LOGO
+===============================*/
+.logo-wrapper {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+.logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+/*==============================
+        BRAND
+===============================*/
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+.brand h1 {
+  font-size: 24px;
+  color: var(--green);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.brand p {
+  color: #777;
+  font-size: 13px;
+}
+/*==============================
+        RIGHT NAV
+===============================*/
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+/*==============================
+        VERSION
+===============================*/
+.version {
+  padding: 10px 22px;
+  border-radius: 40px;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  background: linear-gradient(135deg, var(--green), var(--green-soft));
+  box-shadow: 0 10px 25px rgba(27, 94, 32, 0.25);
+}
+/*==============================
+        LAYOUT
+===============================*/
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: calc(100vh - 82px);
+}
+/*==============================
+        MAIN
+===============================*/
+main {
+  position: relative;
+  padding: 40px;
+  overflow: hidden;
+}
+/*==============================
+    RESPONSIVE NAVBAR
+===============================*/
+@media (max-width: 992px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+    height: 74px;
+  }
+  .brand h1 {
+    font-size: 18px;
+  }
+  .brand p {
+    display: none;
+  }
+  .logo-wrapper {
+    width: 52px;
+    height: 52px;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  .version {
+    display: none;
+  }
+  #menuBtn {
+    width: 48px;
+    height: 48px;
+  }
+}
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 1B)
+==================================================*/
+/*==========================================
+            SIDEBAR
+==========================================*/
+#sidebar {
+  background: #ffffff;
+  border-right: 1px solid var(--border);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  overflow-y: auto;
+  transition: all 0.35s ease;
+  position: relative;
+}
+/*==========================================
+        SIDEBAR HEADER
+==========================================*/
+.sidebar-top {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-top h2 {
+  font-size: 24px;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.sidebar-top h2 i {
+  color: var(--primary);
+}
+.sidebar-top p {
+  color: var(--text-light);
+  font-size: 14px;
+}
+/*==========================================
+            SEARCH BOX
+==========================================*/
+.search-box {
+  position: relative;
+}
+.search-box input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0 18px 0 48px;
+  outline: none;
+  font-size: 14px;
+  transition: var(--transition);
+  background: #fafafa;
+}
+.search-box input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(27, 94, 32, 0.1);
+  background: #ffffff;
+}
+.search-box i {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--green);
+}
+/*==========================================
+        SUBJECT COUNTER
+==========================================*/
+.subject-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--green), var(--green-soft));
+  color: white;
+  font-weight: 600;
+}
+.subject-counter strong {
+  font-size: 20px;
+}
+/*==========================================
+        NOTES CONTAINER
+==========================================*/
+#notesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+/*==========================================
+            NOTE CARD
+==========================================*/
+.note-card {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-template-areas:
+    "icon title"
+    "icon status"
+    "icon badge";
+  column-gap: 16px;
+  row-gap: 6px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+}
+.note-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1);
+}
+/*==========================================
+            ACTIVE CARD
+==========================================*/
+.note-card.active {
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  color: white;
+  border-color: transparent;
+}
+.note-card.active h4,
+.note-card.active p {
+  color: white;
+}
+.note-card.active .badge {
+  background: #ffffff;
+  color: var(--green);
+}
+/*==========================================
+            ICON BOX
+==========================================*/
+.note-icon {
+  grid-area: icon;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.note-card.active .note-icon {
+  background: white;
+  color: var(--green);
+}
+/*==========================================
+            NOTE INFO
+==========================================*/
+.note-info {
+  display: contents;
+}
+.note-info h4 {
+  grid-area: title;
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--text);
+  font-weight: 700;
+}
+.note-info p {
+  grid-area: status;
+  color: var(--text-light);
+  font-size: 14px;
+}
+/*==========================================
+            BADGES
+==========================================*/
+.badge {
+  grid-area: badge;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 14px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+.badge.available {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.badge.coming {
+  background: #ffebee;
+  color: var(--primary);
+}
+/*==========================================
+        DISABLED CARD
+==========================================*/
+.note-card.disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+.note-card.disabled:hover {
+  transform: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  border-color: var(--border);
+}
+/*==========================================
+        SIDEBAR FOOTER
+==========================================*/
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.footer-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px;
+  background: #f8fbf8;
+  border-radius: 16px;
+  border-left: 5px solid var(--green);
+}
+.footer-card i {
+  color: var(--green);
+  font-size: 22px;
+}
+.footer-card h4 {
+  color: var(--green);
+  margin-bottom: 4px;
+}
+.footer-card p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+/*==========================================
+            OVERLAY
+==========================================*/
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 900;
+}
+#overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+/*==========================================
+        MOBILE SIDEBAR
+==========================================*/
+@media (max-width: 992px) {
+  #sidebar {
+    position: fixed;
+    top: 74px;
+    left: -340px;
+    width: 320px;
+    height: calc(100vh - 74px);
+    z-index: 1001;
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.15);
+  }
+  #sidebar.show {
+    left: 0;
+  }
+}
+@media (max-width: 480px) {
+  #sidebar {
+    width: 290px;
+  }
+  .sidebar-top h2 {
+    font-size: 20px;
+  }
+  .note-card {
+    padding: 14px;
+  }
+  .note-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+}
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 2A-1)
+        HERO SECTION
+==================================================*/
+/*==========================================
+        WELCOME SECTION
+==========================================*/
+#welcomeSection {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 60px;
+  min-height: calc(100vh - 170px);
+  padding: 30px 10px 50px;
+  overflow: hidden;
+}
+/*==========================================
+        HERO LEFT
+==========================================*/
+.hero-left {
+  position: relative;
+  z-index: 2;
+}
+/*==========================================
+        HERO BADGE
+==========================================*/
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: var(--green);
+  border: 1px solid rgba(27, 94, 32, 0.15);
+  padding: 12px 22px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+/*==========================================
+        HERO TITLE
+==========================================*/
+.hero-left h1 {
+  font-size: 3.25rem;
+  line-height: 1.25;
+  color: var(--text);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.hero-left h1 span {
+  display: block;
+  margin-top: 12px;
+  color: var(--green);
+  font-size: 3.4rem;
+}
+/*==========================================
+        HERO PARAGRAPH
+==========================================*/
+.hero-left p {
+  max-width: 700px;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--text-light);
+  margin-bottom: 35px;
+}
+/*==========================================
+        BUTTON GROUP
+==========================================*/
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 45px;
+}
+/*==========================================
+        PRIMARY BUTTON
+==========================================*/
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: none;
+  cursor: pointer;
+  padding: 16px 34px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--green), var(--green-soft));
+  transition: var(--transition);
+  box-shadow: 0 15px 35px rgba(27, 94, 32, 0.22);
+}
+.primary-btn:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, var(--primary), #ef5350);
+  box-shadow: 0 20px 40px rgba(198, 40, 40, 0.25);
+}
+.primary-btn i {
+  font-size: 17px;
+}
+/*==========================================
+        STATS SECTION
+==========================================*/
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+/*==========================================
+        SINGLE STAT
+==========================================*/
+.stat {
+  min-width: 150px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+.stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+}
+.stat h2 {
+  font-size: 32px;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.stat p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-light);
+}
+/*==========================================
+        HERO RIGHT
+==========================================*/
+.hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/*==========================================
+        HERO IMAGE HOLDER
+==========================================*/
+.hero-image {
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+/*==========================================
+        HERO IMAGE
+==========================================*/
+.hero-image img {
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+/*==========================================
+        TABLET
+==========================================*/
+@media (max-width: 1100px) {
+  #welcomeSection {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+  .hero-left p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .stats {
+    justify-content: center;
+  }
+}
+/*==========================================
+        MOBILE
+==========================================*/
+@media (max-width: 768px) {
+  #welcomeSection {
+    padding: 20px 0 30px;
+  }
+  .hero-left h1 {
+    font-size: 2.2rem;
+  }
+  .hero-left h1 span {
+    font-size: 2.4rem;
+  }
+  .hero-left p {
+    font-size: 15px;
+  }
+  .hero-image {
+    width: 280px;
+    height: 280px;
+  }
+  .hero-image img {
+    width: 170px;
+    height: 170px;
+  }
+  .stats {
+    flex-direction: column;
+  }
+  .stat {
+    width: 100%;
+  }
+  .primary-btn {
+    width: 100%;
+  }
+}
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 2A-2A)
+        HERO DECORATIONS
+==================================================*/
+/*==========================================
+        HERO BACKGROUND SHAPES
+==========================================*/
+#welcomeSection::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(198, 40, 40, 0.18),
+    rgba(198, 40, 40, 0.04),
+    transparent 70%
+  );
+  top: -120px;
+  left: -140px;
+  z-index: 0;
+  filter: blur(5px);
+}
+#welcomeSection::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(27, 94, 32, 0.18),
+    rgba(27, 94, 32, 0.04),
+    transparent 70%
+  );
+  right: -180px;
+  bottom: -180px;
+  z-index: 0;
+  filter: blur(6px);
+}
+/*==========================================
+        FLOATING RED BLOB
+==========================================*/
+.hero-right::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(198, 40, 40, 0.18),
+    rgba(239, 83, 80, 0.08)
+  );
+  top: 10px;
+  left: 20px;
+  z-index: 0;
+  animation: floatBlobOne 9s ease-in-out infinite;
+}
+/*==========================================
+        FLOATING GREEN BLOB
+==========================================*/
+.hero-right::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 94, 32, 0.18),
+    rgba(67, 160, 71, 0.08)
+  );
+  right: 15px;
+  bottom: 20px;
+  z-index: 0;
+  animation: floatBlobTwo 10s ease-in-out infinite;
+}
+/*==========================================
+        HERO IMAGE GLOW
+==========================================*/
+.hero-image {
+  overflow: hidden;
+}
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--primary), var(--green));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.85;
+}
+/*==========================================
+        INNER SHINE
+==========================================*/
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
+}
+/*==========================================
+        DECORATIVE RING 1
+==========================================*/
+.hero-image .ring-one {
+  position: absolute;
+  width: 105%;
+  height: 105%;
+  border-radius: 50%;
+  border: 2px dashed rgba(198, 40, 40, 0.25);
+  animation: rotateRing 18s linear infinite;
+}
+/*==========================================
+        DECORATIVE RING 2
+==========================================*/
+.hero-image .ring-two {
+  position: absolute;
+  width: 118%;
+  height: 118%;
+  border-radius: 50%;
+  border: 2px dashed rgba(27, 94, 32, 0.2);
+  animation: rotateRingReverse 22s linear infinite;
+}
+/*==========================================
+        HERO SHADOW
+==========================================*/
+.hero-image {
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.1),
+    0 0 50px rgba(27, 94, 32, 0.08);
+}
+/*==========================================
+        GLASS HIGHLIGHT
+==========================================*/
+.hero-image .glass {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  top: 30px;
+  left: 45px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0)
+  );
+  filter: blur(4px);
+}
+/*==========================================
+        SOFT LIGHT EFFECT
+==========================================*/
+.hero-left::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(rgba(67, 160, 71, 0.08), transparent 70%);
+  left: -60px;
+  top: -40px;
+  z-index: -1;
+}
+/*==========================================
+        RESPONSIVE
+==========================================*/
+@media (max-width: 1100px) {
+  #welcomeSection::before {
+    width: 320px;
+    height: 320px;
+  }
+  #welcomeSection::after {
+    width: 360px;
+    height: 360px;
+  }
+  .hero-right::before,
+  .hero-right::after {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  #welcomeSection::before,
+  #welcomeSection::after {
+    display: none;
+  }
+  .hero-image {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+}
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 2A-2B-1A)
+        HERO ANIMATIONS
+==================================================*/
+/*==========================================
+        HERO ENTRANCE
+==========================================*/
+.hero-left {
+  animation: heroLeft 1s ease forwards;
+}
+.hero-right {
+  animation: heroRight 1s ease forwards;
+}
+/*==========================================
+        TITLE ANIMATION
+==========================================*/
+.hero-left h1 {
+  animation: titleFade 0.9s ease 0.2s both;
+}
+.hero-left p {
+  animation: titleFade 0.9s ease 0.4s both;
+}
+.hero-badge {
+  animation: titleFade 0.9s ease both;
+}
+.hero-buttons {
+  animation: titleFade 0.9s ease 0.6s both;
+}
+.stats {
+  animation: titleFade 0.9s ease 0.8s both;
+}
+/*==========================================
+        LOGO FLOAT
+==========================================*/
+.hero-image img {
+  animation: logoFloat 4s ease-in-out infinite;
+}
+/*==========================================
+        BUTTON HOVER
+==========================================*/
+.primary-btn {
+  position: relative;
+  overflow: hidden;
+}
+.primary-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transition: 0.8s;
+}
+.primary-btn:hover::before {
+  left: 120%;
+}
+/*==========================================
+        STATS HOVER
+==========================================*/
+.stat {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.stat:hover {
+  transform: translateY(-8px);
+}
+/*==========================================
+        HERO IMAGE HOVER
+==========================================*/
+.hero-image {
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+.hero-image:hover {
+  transform: scale(1.03);
+}
+/*==========================================
+        KEYFRAMES
+==========================================*/
+@keyframes heroLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes heroRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes titleFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  75% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/*==========================================
+        TABLET
+==========================================*/
+@media (max-width: 1100px) {
+  .hero-left {
+    animation: none;
+  }
+  .hero-right {
+    animation: none;
+  }
+}
+/*==========================================
+        MOBILE
+==========================================*/
+@media (max-width: 768px) {
+  .hero-left h1 {
+    animation: none;
+  }
+  .hero-left p {
+    animation: none;
+  }
+  .hero-buttons {
+    animation: none;
+  }
+  .stats {
+    animation: none;
+  }
+}
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 2A-2B-1B)
+        HERO FLOATING EFFECTS
+==================================================*/
+/*==========================================
+        FLOATING BLOBS
+==========================================*/
+@keyframes floatBlobOne {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-15px, -12px) scale(1.05);
+  }
+  50% {
+    transform: translate(-28px, 8px) scale(0.95);
+  }
+  75% {
+    transform: translate(-12px, 18px) scale(1.03);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes floatBlobTwo {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(18px, -10px) scale(1.06);
+  }
+  50% {
+    transform: translate(30px, 15px) scale(0.94);
+  }
+  75% {
+    transform: translate(12px, 25px) scale(1.02);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+/*==========================================
+        RING ROTATION
+==========================================*/
+@keyframes rotateRing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateRingReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+/*==========================================
+        HERO IMAGE PULSE
+==========================================*/
+@keyframes heroPulse {
+  0% {
+    box-shadow:
+      0 30px 70px rgba(0, 0, 0, 0.1),
+      0 0 0 rgba(27, 94, 32, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 35px 80px rgba(0, 0, 0, 0.12),
+      0 0 45px rgba(27, 94, 32, 0.18);
+  }
+  100% {
+    box-shadow:
+      0 30px 70px rgba(0, 0, 0, 0.1),
+      0 0 0 rgba(27, 94, 32, 0.15);
+  }
+}
+/*==========================================
+        FLOATING PARTICLES
+==========================================*/
+.hero-right .particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0.18;
+  animation: particleFloat 7s linear infinite;
+}
+.hero-right .particle:nth-child(1) {
+  left: 15%;
+  top: 18%;
+  animation-delay: 0s;
+}
+.hero-right .particle:nth-child(2) {
+  right: 18%;
+  top: 25%;
+  animation-delay: 1.5s;
+}
+.hero-right .particle:nth-child(3) {
+  left: 28%;
+  bottom: 18%;
+  animation-delay: 3s;
+}
+.hero-right .particle:nth-child(4) {
+  right: 22%;
+  bottom: 10%;
+  animation-delay: 4.5s;
+}
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-18px) scale(1);
+  }
+  80% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.5);
+    opacity: 0;
+  }
+}
+/*==========================================
+        HERO IMAGE ANIMATION
+==========================================*/
+.hero-image {
+  animation: heroPulse 6s ease-in-out infinite;
+}
+/*==========================================
+        STAGGER EFFECT
+==========================================*/
+.stat:nth-child(1) {
+  animation: titleFade 0.8s ease 0.8s both;
+}
+.stat:nth-child(2) {
+  animation: titleFade 0.8s ease 1s both;
+}
+.stat:nth-child(3) {
+  animation: titleFade 0.8s ease 1.2s both;
+}
+/*==========================================
+        HOVER EFFECTS
+==========================================*/
+.hero-image:hover img {
+  transform: scale(1.06);
+}
+.hero-image img {
+  transition: transform 0.45s ease;
+}
+.hero-badge:hover {
+  transform: translateY(-3px);
+}
+.hero-badge {
+  transition: var(--transition);
+}
+/*==========================================
+        REDUCED MOTION
+==========================================*/
+@media (prefers-reduced-motion: reduce) {
+  .hero-right::before,
+  .hero-right::after,
+  .hero-image,
+  .hero-image img,
+  .ring-one,
+  .ring-two,
+  .particle {
+    animation: none !important;
+  }
+}
+/*==========================================
+        RESPONSIVE
+==========================================*/
+@media (max-width: 1100px) {
+  .ring-one,
+  .ring-two {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .hero-image {
+    animation: none;
+  }
+  .hero-right .particle {
+    display: none;
+  }
+}
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 2B-1)
+        FEATURES SECTION
+==================================================*/
+/*==========================================
+        FEATURES SECTION
+==========================================*/
+.features-section {
+  margin-top: 90px;
+  position: relative;
+  z-index: 2;
+}
+/*==========================================
+        SECTION HEADING
+==========================================*/
+.section-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+.section-heading h2 {
+  font-size: 2.5rem;
+  color: var(--green);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.section-heading p {
+  max-width: 720px;
+  margin: auto;
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+/*==========================================
+        FEATURES GRID
+==========================================*/
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+/*==========================================
+        FEATURE CARD
+==========================================*/
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 35px 30px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  transition: var(--transition);
+}
+/*==========================================
+        TOP ACCENT BAR
+==========================================*/
+.feature-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--green));
+}
+/*==========================================
+        BACKGROUND GLOW
+==========================================*/
+.feature-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  right: -90px;
+  top: -90px;
+  background: radial-gradient(rgba(27, 94, 32, 0.1), transparent 70%);
+  pointer-events: none;
+}
+/*==========================================
+        ICON HOLDER
+==========================================*/
+.feature-icon {
+  width: 78px;
+  height: 78px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 26px;
+  color: #ffffff;
+  font-size: 30px;
+  background: linear-gradient(135deg, var(--green), var(--green-soft));
+  box-shadow: 0 15px 35px rgba(27, 94, 32, 0.18);
+}
+/*==========================================
+        DIFFERENT ICON COLORS
+==========================================*/
+.feature-card:nth-child(2) .feature-icon {
+  background: linear-gradient(135deg, var(--primary), #ef5350);
+}
+.feature-card:nth-child(3) .feature-icon {
+  background: linear-gradient(135deg, #1565c0, #42a5f5);
+}
+.feature-card:nth-child(4) .feature-icon {
+  background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+}
+/*==========================================
+        CARD TITLE
+==========================================*/
+.feature-card h3 {
+  color: var(--green);
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+/*==========================================
+        CARD DESCRIPTION
+==========================================*/
+.feature-card p {
+  color: var(--text-light);
+  line-height: 1.9;
+  font-size: 15px;
+}
+/*==========================================
+        FEATURE ICON
+==========================================*/
+.feature-icon i {
+  transition: 0.4s;
+}
+/*==========================================
+        RESPONSIVE
+==========================================*/
+@media (max-width: 992px) {
+  .features-section {
+    margin-top: 70px;
+  }
+  .section-heading h2 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .feature-card {
+    padding: 28px;
+  }
+  .feature-icon {
+    width: 68px;
+    height: 68px;
+    font-size: 26px;
+  }
+  .section-heading {
+    margin-bottom: 35px;
+  }
+  .section-heading h2 {
+    font-size: 1.8rem;
+  }
+}
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 2B-2)
+        FEATURES ANIMATIONS & HOVER
+==================================================*/
+/*==========================================
+        FEATURE CARD HOVER
+==========================================*/
+.feature-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.12);
+  border-color: rgba(27, 94, 32, 0.15);
+}
+.feature-card:hover::after {
+  transform: scale(1.35);
+  opacity: 0.9;
+}
+/*==========================================
+        ICON ANIMATION
+==========================================*/
+.feature-card:hover .feature-icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+.feature-card:hover .feature-icon i {
+  transform: scale(1.15);
+}
+/*==========================================
+        SHINE EFFECT
+==========================================*/
+.feature-card {
+  isolation: isolate;
+}
+.feature-card .shine {
+  display: none;
+}
+.feature-card::before {
+  transition: 0.35s ease;
+}
+.feature-card::after {
+  transition: 0.45s ease;
+}
+.feature-card:hover::before {
+  height: 8px;
+}
+/*==========================================
+        TEXT EFFECT
+==========================================*/
+.feature-card h3 {
+  transition: 0.3s;
+}
+.feature-card:hover h3 {
+  color: var(--primary);
+}
+.feature-card p {
+  transition: 0.3s;
+}
+.feature-card:hover p {
+  color: #555;
+}
+/*==========================================
+        CARD APPEAR ANIMATION
+==========================================*/
+.feature-card {
+  opacity: 0;
+  animation: featureAppear 0.8s ease forwards;
+}
+.feature-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.feature-card:nth-child(2) {
+  animation-delay: 0.25s;
+}
+.feature-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.feature-card:nth-child(4) {
+  animation-delay: 0.55s;
+}
+/*==========================================
+        FEATURE KEYFRAMES
+==========================================*/
+@keyframes featureAppear {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*==========================================
+        ICON BOUNCE
+==========================================*/
+@keyframes iconBounce {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.feature-card:hover .feature-icon {
+  animation: iconBounce 0.8s ease;
+}
+/*==========================================
+        SECTION FADE
+==========================================*/
+.features-section {
+  animation: sectionFade 0.9s ease;
+}
+@keyframes sectionFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*==========================================
+        CARD CURSOR
+==========================================*/
+.feature-card {
+  cursor: default;
+}
+/*==========================================
+        MOBILE IMPROVEMENTS
+==========================================*/
+@media (max-width: 768px) {
+  .feature-card {
+    animation: none;
+    opacity: 1;
+  }
+  .feature-card:hover {
+    transform: none;
+  }
+  .feature-card:hover .feature-icon {
+    transform: none;
+    animation: none;
+  }
+}
+/*==========================================
+        REDUCED MOTION
+==========================================*/
+@media (prefers-reduced-motion: reduce) {
+  .feature-card {
+    animation: none !important;
+    opacity: 1;
+  }
+  .feature-card:hover {
+    transform: none;
+  }
+  .feature-card:hover .feature-icon {
+    transform: none;
+    animation: none;
+  }
+}
+/*==========================================
+        END OF FEATURES
+==========================================*/
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 3A)
+        PDF VIEWER
+==================================================*/
+/*==========================================
+        EMPTY STATE
+==========================================*/
+#emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  animation: fadeIn 0.5s ease;
+}
+.empty-card {
+  width: min(650px, 100%);
+  padding: 60px 45px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+.empty-icon {
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  margin-bottom: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--green), var(--green-soft));
+  color: #fff;
+  font-size: 46px;
+}
+.empty-card h2 {
+  font-size: 2rem;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+.empty-card p {
+  color: var(--text-light);
+  line-height: 1.8;
+  font-size: 16px;
+}
+/*==========================================
+        PDF VIEWER
+==========================================*/
+#viewerSection {
+  display: none;
+  flex-direction: column;
+  gap: 25px;
+  animation: fadeIn 0.45s ease;
+  width: 100%;
+}
+/*==========================================
+        VIEWER HEADER
+==========================================*/
+.viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 22px 26px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 95px;
+  z-index: 50;
+}
+/*==========================================
+        TITLE
+==========================================*/
+.viewer-title h2 {
+  color: var(--green);
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.viewer-title p {
+  color: var(--text-light);
+  font-size: 14px;
+}
+/*==========================================
+        CONTROLS
+==========================================*/
+.viewer-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+/*==========================================
+        BUTTONS
+==========================================*/
+.viewer-controls button {
+  width: 48px;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green), var(--green-soft));
+  transition: var(--transition);
+  box-shadow: 0 10px 24px rgba(27, 94, 32, 0.2);
+}
+.viewer-controls button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, var(--primary), #ef5350);
+}
+/*==========================================
+        PAGE INFO
+==========================================*/
+#pageInfo {
+  min-width: 120px;
+  text-align: center;
+  background: #eef7ef;
+  color: var(--green);
+  padding: 12px 18px;
+  border-radius: 40px;
+  font-weight: 600;
+}
+/*==========================================
+        ZOOM
+==========================================*/
+#zoomLevel {
+  min-width: 70px;
+  text-align: center;
+  background: #fff2f2;
+  color: var(--primary);
+  padding: 12px;
+  border-radius: 40px;
+  font-weight: 600;
+}
+/*==========================================
+        PDF CONTAINER
+==========================================*/
+#pdfContainer {
+  position: relative;
+  min-height: 700px;
+  background: #f3f5f3;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  overflow: auto;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+/*==========================================
+        PDF CANVAS
+==========================================*/
+#pdfCanvas {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
+  max-width: 100%;
+  height: auto;
+}
+/*==========================================
+        LOADING
+==========================================*/
+#loadingScreen {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  z-index: 10;
+}
+/*==========================================
+        LOADER
+==========================================*/
+.loader {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 6px solid #ececec;
+  border-top: 6px solid var(--green);
+  animation: spin 1s linear infinite;
+}
+#loadingScreen p {
+  font-size: 18px;
+  color: var(--green);
+  font-weight: 600;
+}
+/*==========================================
+        ANIMATIONS
+==========================================*/
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*==========================================
+        RESPONSIVE
+==========================================*/
+@media (max-width: 992px) {
+  .viewer-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .viewer-controls {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .viewer-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 16px;
+    margin-bottom: 100px;
+  }
+  .viewer-title {
+    text-align: center;
+  }
+  .viewer-controls {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+  }
+  .viewer-controls button {
+    width: 100%;
+    height: 42px;
+  }
+  #pageInfo {
+    min-width: unset;
+    width: 100%;
+    padding: 10px 4px;
+    font-size: 13px;
+  }
+  #zoomLevel {
+    min-width: unset;
+    width: 100%;
+    padding: 10px 4px;
+    font-size: 13px;
+  }
+  #pdfContainer {
+    padding: 15px;
+    min-height: 500px;
+  }
+}
+@media (max-width: 480px) {
+  .viewer-controls {
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .viewer-title {
+    width: 100%;
+    text-align: center;
+  }
+}
+/*==================================================
+        LCC EDUCATION NOTES
+        STYLE.CSS (PART 3B)
+        FOOTER • UTILITIES • FINAL POLISH
+==================================================*/
+/*==========================================
+                FOOTER
+==========================================*/
+footer {
+  margin-top: 60px;
+  background: #ffffff;
+  border-top: 4px solid var(--green);
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.05);
+}
+.footer-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.footer-logo {
+  width: 90px;
+  height: 90px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+.footer-logo img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+.footer-text {
+  text-align: left;
+}
+.footer-text h3 {
+  color: var(--green);
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+.footer-text p {
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+.footer-text small {
+  color: #888;
+}
+.copyright {
+  text-align: center;
+  padding: 18px;
+  border-top: 1px solid var(--border);
+  color: #777;
+  font-size: 14px;
+}
+/*==========================================
+            COMMON UTILITIES
+==========================================*/
+.hidden {
+  display: none !important;
+}
+.flex {
+  display: flex;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-center {
+  text-align: center;
+}
+.text-green {
+  color: var(--green);
+}
+.text-red {
+  color: var(--primary);
+}
+.mt-1 {
+  margin-top: 10px;
+}
+.mt-2 {
+  margin-top: 20px;
+}
+.mt-3 {
+  margin-top: 30px;
+}
+.mt-4 {
+  margin-top: 40px;
+}
+.mb-1 {
+  margin-bottom: 10px;
+}
+.mb-2 {
+  margin-bottom: 20px;
+}
+.mb-3 {
+  margin-bottom: 30px;
+}
+.mb-4 {
+  margin-bottom: 40px;
+}
+/*==========================================
+            BUTTON STATES
+==========================================*/
+button {
+  font-family: "Poppins", sans-serif;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+button:disabled:hover {
+  transform: none;
+}
+/*==========================================
+            IMAGE DEFAULTS
+==========================================*/
+img {
+  max-width: 100%;
+  display: block;
+}
+/*==========================================
+            CANVAS
+==========================================*/
+canvas {
+  image-rendering: auto;
+}
+/*==========================================
+            LINKS
+==========================================*/
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/*==========================================
+            SELECTION
+==========================================*/
+::selection {
+  background: var(--green);
+  color: #ffffff;
+}
+::-moz-selection {
+  background: var(--green);
+  color: #ffffff;
+}
+/*==========================================
+            SCROLLBAR
+==========================================*/
+#pdfContainer::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+#pdfContainer::-webkit-scrollbar-track {
+  background: #eeeeee;
+}
+#pdfContainer::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--primary), var(--green));
+  border-radius: 30px;
+}
+/*==========================================
+            FOCUS
+==========================================*/
+button:focus-visible,
+input:focus-visible,
+.note-card:focus-visible {
+  outline: 3px solid rgba(27, 94, 32, 0.35);
+  outline-offset: 3px;
+}
+/*==========================================
+        PRINT SUPPORT
+==========================================*/
+@media print {
+  .navbar,
+  #sidebar,
+  footer,
+  .viewer-header,
+  #overlay {
+    display: none !important;
+  }
+  body {
+    background: #ffffff;
+  }
+  main {
+    padding: 0;
+  }
+  #pdfContainer {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    background: #ffffff;
+  }
+}
+/*==========================================
+        REDUCED MOTION
+==========================================*/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+/*==========================================
+        TABLET
+==========================================*/
+@media (max-width: 992px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-text {
+    text-align: center;
+  }
+}
+/*==========================================
+        MOBILE
+==========================================*/
+@media (max-width: 768px) {
+  main {
+    padding: 22px;
+  }
+  .footer-container {
+    padding: 30px 20px;
+  }
+  .footer-logo {
+    width: 75px;
+    height: 75px;
+  }
+  .footer-logo img {
+    width: 52px;
+    height: 52px;
+  }
+  .footer-text h3 {
+    font-size: 20px;
+  }
+  .copyright {
+    font-size: 13px;
+  }
+}
+/*==========================================
+        SMALL MOBILE
+==========================================*/
+@media (max-width: 480px) {
+  main {
+    padding: 16px;
+  }
+  .footer-container {
+    gap: 16px;
+  }
+}
+/*==========================================
+        END OF STYLE SHEET
+==========================================*/
+/*==================================================
+        LCC EDUCATION NOTES
+        EXTRA CSS (v3.0)
+==================================================*/
+/*==========================================
+        PDF VIEWER WRAPPER
+==========================================*/
+#pdfViewer {
+  display: none;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+}
+/*==========================================
+        HERO GRADIENT
+==========================================*/
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-image img {
+  position: relative;
+  z-index: 5;
+}
+.ring-one,
+.ring-two,
+.glass {
+  z-index: 2;
+}
+/*==========================================
+        BACK TO TOP BUTTON
+==========================================*/
+#backToTop {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--green-soft));
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 15px 30px rgba(27, 94, 32, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: 0.35s;
+  z-index: 999;
+}
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+#backToTop:hover {
+  background: linear-gradient(135deg, var(--primary), #ef5350);
+  transform: translateY(-4px);
+}
+/*==========================================
+        TOAST
+==========================================*/
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%) translateY(30px);
+  min-width: 280px;
+  max-width: 420px;
+  background: #ffffff;
+  color: var(--text);
+  border-left: 5px solid var(--green);
+  border-radius: 14px;
+  padding: 15px 22px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.35s;
+  z-index: 1200;
+  font-size: 15px;
+  font-weight: 500;
+}
+#toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+#toast.success {
+  border-left-color: var(--green);
+}
+#toast.error {
+  border-left-color: var(--primary);
+}
+/*==========================================
+        PDF LOADED STATE
+==========================================*/
+.viewer-loaded #emptyState {
+  display: none;
+}
+.viewer-loaded #pdfViewer {
+  display: flex;
+}
+/*==========================================
+        MOBILE
+==========================================*/
+@media (max-width: 768px) {
+  #backToTop {
+    width: 50px;
+    height: 50px;
+    right: 18px;
+    bottom: 18px;
+    font-size: 16px;
+  }
+  #toast {
+    width: 90%;
+    min-width: auto;
+    font-size: 14px;
+  }
+}
+.note-icon.excel {
+  background: #2e7d32;
+}
+.note-icon.internet {
+  background: #1976d2;
+}
+.note-icon.web {
+  background: #f57c00;
+}
+.note-icon.c {
+  background: #9e9e9e;
+}
+.note-icon.accounting {
+  background: #9e9e9e;
+}

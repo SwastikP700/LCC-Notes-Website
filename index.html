@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Official Notes Portal of LCC Computer Education"
+    />
+    <title>LCC EDUCATION NOTES | Official Learning Portal</title>
+    <link rel="icon" href="assets/logo2.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-left">
+        <button id="menuBtn" aria-label="Toggle Sidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="logo-wrapper">
+          <img src="assets/logo.png" alt="LCC Logo" class="logo" />
+        </div>
+        <div class="brand">
+          <h1>LCC EDUCATION NOTES</h1>
+          <p>Official Digital Learning Portal</p>
+        </div>
+      </div>
+      <div class="nav-right">
+        <div class="version">
+          <i class="fa-solid fa-code-branch"></i> Version 3.0
+        </div>
+      </div>
+    </header>
+    <div class="layout">
+      <aside id="sidebar">
+        <div class="sidebar-top">
+          <h2><i class="fa-solid fa-book-open-reader"></i> Subjects</h2>
+          <p>Browse available notes</p>
+        </div>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            id="searchNotes"
+            type="text"
+            placeholder="Search Notes..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+        <div class="subject-counter">
+          <span>Subjects</span><strong>5 Notes</strong>
+        </div>
+        <div id="notesContainer"></div>
+        <div class="sidebar-footer">
+          <div class="footer-card">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+              <h4>Information</h4>
+              <p>More subjects will be uploaded regularly.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div id="overlay"></div>
+      <main>
+        <section id="welcomeSection">
+          <div class="hero-left">
+            <span class="hero-badge">Official Learning Portal</span>
+            <h1>Welcome to <span>LCC COMPUTER EDUCATION</span></h1>
+            <p>
+              Browse professionally prepared study notes, read PDFs directly
+              inside the website and learn anytime from desktop, tablet or
+              mobile.
+            </p>
+            <div class="hero-buttons">
+              <button id="startBtn" class="primary-btn">
+                <i class="fa-solid fa-book-open"></i> Start Reading
+              </button>
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <h2>5+</h2>
+                <p>Subjects</p>
+              </div>
+              <div class="stat">
+                <h2>3</h2>
+                <p>Available</p>
+              </div>
+              <div class="stat">
+                <h2>24×7</h2>
+                <p>Access</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-right">
+            <span class="particle"></span><span class="particle"></span
+            ><span class="particle"></span><span class="particle"></span>
+            <div class="hero-image">
+              <div class="hero-gradient"></div>
+              <span class="ring-one"></span>
+              <span class="ring-two"></span>
+              <span class="glass"></span>
+              <img src="assets/logo.png" alt="LCC Logo" />
+            </div>
+          </div>
+        </section>
+        <section class="features-section">
+          <div class="section-heading">
+            <h2>Why Choose Our Notes?</h2>
+            <p>
+              Carefully prepared study materials for classroom learning and
+              self-practice.
+            </p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <h3>Premium Notes</h3>
+              <p>Professionally prepared study materials.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <h3>Integrated PDF Reader</h3>
+              <p>Read notes directly inside the portal.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <h3>Always Responsive</h3>
+              <p>Optimized for desktop, tablet and mobile devices.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <h3>Future Ready</h3>
+              <p>Easy to expand with additional notes and subjects.</p>
+            </div>
+          </div>
+        </section>
+        <section id="viewerSection">
+          <div id="emptyState">
+            <div class="empty-card">
+              <div class="empty-icon">
+                <i class="fa-solid fa-book-open-reader"></i>
+              </div>
+              <h2>Select a Subject</h2>
+              <p>
+                Choose any available note from the left sidebar to begin
+                reading.
+              </p>
+            </div>
+          </div>
+          <div id="pdfViewer">
+            <div class="viewer-header">
+              <div class="viewer-title">
+                <h2 id="noteTitle">Notes Title</h2>
+                <p>LCC COMPUTER EDUCATION</p>
+              </div>
+              <div class="viewer-controls">
+                <button id="prevPage">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <span id="pageInfo">Page 1 / 1</span>
+                <button id="nextPage">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button id="zoomOut"><i class="fa-solid fa-minus"></i></button>
+                <span id="zoomLevel">100%</span>
+                <button id="zoomIn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+            <div id="loadingScreen">
+              <div class="loader"></div>
+              <p>Preparing your notes...</p>
+            </div>
+            <div id="pdfContainer"><canvas id="pdfCanvas"></canvas></div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="LCC Logo" />
+        </div>
+        <div class="footer-text">
+          <h3>LCC COMPUTER EDUCATION</h3>
+          <p>Official Digital Learning Portal</p>
+          <small>Empowering Students Through Digital Learning</small>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2026 LCC COMPUTER EDUCATION • All Rights Reserved.
+      </div>
+    </footer>
+    <button id="backToTop" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <div id="toast"></div>
+    <script src="pdfjs/pdf.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/pdfviewer.js"></script>
+  </body>
+</html>
