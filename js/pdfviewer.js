@@ -467,30 +467,6 @@ document.addEventListener(
   },
 );
 /*==========================================
-        TOUCH SUPPORT
-==========================================*/
-let touchStartX = 0;
-let touchEndX = 0;
-pdfContainer.addEventListener(
-  "touchstart",
-  (event) => {
-    touchStartX = event.changedTouches[0].screenX;
-  },
-);
-pdfContainer.addEventListener(
-  "touchend",
-  (event) => {
-    touchEndX = event.changedTouches[0].screenX;
-    const distance = touchEndX - touchStartX;
-    if (Math.abs(distance) < 80) return;
-    if (distance > 0) {
-      previousPage();
-    } else {
-      nextPage();
-    }
-  },
-);
-/*==========================================
         CLEANUP
 ==========================================*/
 function destroyViewer() {
